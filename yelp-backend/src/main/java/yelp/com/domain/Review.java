@@ -1,4 +1,4 @@
-package domain;
+package yelp.com.domain;
 
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
