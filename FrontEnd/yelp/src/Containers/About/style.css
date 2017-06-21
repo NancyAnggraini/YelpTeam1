@@ -3,16 +3,16 @@
 .About {
   margin-top: 50px;
   margin-left: 100px;
+  margin-right: 100px;
   text-align: left;
 }
 
 .About-intro {
   font-size: 30px;
-  margin-bottom: 0;
 
 }
 
 .About-text {
   font-size: 15px;
-  margin: 5px auto;
+
 }

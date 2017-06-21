@@ -3,16 +3,14 @@
 .Contact {
   margin-top: 50px;
   margin-left: 100px;
+  margin-right: 100px;
   text-align: left;
 }
 
 .Contact-intro {
   font-size: 30px;
-  margin-bottom: 0;
-
 }
 
 .Contact-email {
   font-size: 15px;
-  margin: 5px auto;
 }
