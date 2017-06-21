@@ -8,15 +8,14 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
+import RestaurantsListItem from '../RestaurantsListItem'
 
-// creat a component from the TableRow in the end
-// also as a functional component like this one
 
 const RestaurantsList = ({restaurants}) => {
-  console.log(restaurants);
+  console.log("restaurant: ", restaurants);
   return (
     <Table>
-      <TableHeader diplayRowCheckbox={false} displaySelectAll={false} adjustForCheckbox={false}>
+      <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
         <TableRow>
           <TableHeaderColumn>Name</TableHeaderColumn>
           <TableHeaderColumn>Address</TableHeaderColumn>
@@ -27,14 +26,7 @@ const RestaurantsList = ({restaurants}) => {
       <TableBody displayRowCheckbox={false}>
         {restaurants.map((restaurant) => {
           return (
-            <TableRow key={restaurant.id}>
-              <TableRowColumn>{restaurant.name}</TableRowColumn>
-              <TableRowColumn>{restaurant.address}</TableRowColumn>
-              <TableRowColumn>{restaurant.phone}</TableRowColumn>
-              <TableRowColumn>
-                <a href ={restaurant.web} target="_blank">{restaurant.web}</a>
-              </TableRowColumn>
-            </TableRow>
+            <RestaurantsListItem key={restaurant.id} restaurant={restaurant}/>
           )
         })}
       </TableBody>

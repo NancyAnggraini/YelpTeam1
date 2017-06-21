@@ -9,7 +9,7 @@ class Home extends Component {
     return (
       <div className="App">
         <Navbar />
-        <RestaurantsList />
+        <RestaurantsList/>
       </div>
     );
   }
