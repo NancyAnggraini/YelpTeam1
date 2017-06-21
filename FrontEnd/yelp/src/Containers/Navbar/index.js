@@ -1,37 +1,37 @@
 import React from 'react';
-import FontIcon from 'material-ui/FontIcon';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
 import logo from './logo.png';
 import './style.css';
 
+const labelStyles = {
+  textTransform: 'capitalize'
+};
+
 export default class Navbar extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 3,
-    };
-  }
-
-  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return (
-      <Toolbar style= {{ 'backgroundColor': '#B70C03' }} >
+      <Toolbar className="Navbar" >
 
         <ToolbarGroup firstChild={true}>
           <img src={logo} className="Yelp-logo" alt="logo" />
-          <FlatButton label="About" style= {{ 'backgroundColor': '#B70C03', 'color':'white' }} labelStyle={{ 'textTransform': 'capitalize' }} />
-          <FlatButton label="Contact" style= {{ 'backgroundColor': '#B70C03', 'color':'white' }} labelStyle={{ 'textTransform': 'capitalize' }} />
+          <div className="ContactButtons">
+            <FlatButton label="About" className="redBackground" labelStyle={ labelStyles } />
+            <FlatButton label="Contact" className="redBackground" labelStyle={ labelStyles } />
+          </div>
+          <form>
+            <input placeholder="Type a restaurant name" />
+            <RaisedButton label="Search" className="searchButton" labelStyle={ labelStyles } style={{ 'height': 24 }} />
+          </form>
         </ToolbarGroup>
 
-        <ToolbarGroup className="SignInUp">
-          <FlatButton label="Sign In" style= {{ 'backgroundColor': '#B70C03', 'color':'white' }} labelStyle={{ 'textTransform': 'capitalize' }}  />
-          <FlatButton label="Sign Up" style= {{ 'backgroundColor': '#B70C03', 'color':'white' }} labelStyle={{ 'textTransform': 'capitalize' }}  />
+        <ToolbarGroup >
+          <div className="SignButtons">
+            <FlatButton label="Sign In" primary={true} className="redBackground" labelStyle={ labelStyles }  />
+            <FlatButton label="Sign Up" secondary={true} className="redBackground" labelStyle={ labelStyles }  />
+          </div>
         </ToolbarGroup>
 
       </Toolbar>
