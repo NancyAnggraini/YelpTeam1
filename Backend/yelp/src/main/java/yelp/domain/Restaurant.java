@@ -1,4 +1,4 @@
-package yelp.com.domain;
+package yelp.domain;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,7 +24,6 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Setter(AccessLevel.PRIVATE)
 	private int id;
 	
 	@Column(name = "name", nullable = false, length = 40)
@@ -46,6 +45,7 @@ public class Restaurant {
 	private String uri;
 	
 	//List for reviews
+	@OneToMany
 	private List<Review> reviews;
 	
 	public Restaurant() {
