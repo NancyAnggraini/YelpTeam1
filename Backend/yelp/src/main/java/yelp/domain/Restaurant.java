@@ -1,13 +1,10 @@
 package yelp.domain;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AccessLevel;
@@ -25,7 +22,6 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	@Setter(AccessLevel.PRIVATE)
 	private int id;
 	
@@ -46,10 +42,6 @@ public class Restaurant {
 	
 	@Column(name = "uri", nullable = false, length = 75)
 	private String uri;
-	
-	//List for reviews
-	@OneToMany
-	private List<Review> reviews;
 	
 	public Restaurant() {
 		/* default constructor: required by JPA */
