@@ -1,4 +1,5 @@
-  CREATE TABLE user (
+
+CREATE TABLE user (
   
   id INTEGER (11) NOT NULL IDENTITY,
   firstName VARCHAR(30) NOT NULL,

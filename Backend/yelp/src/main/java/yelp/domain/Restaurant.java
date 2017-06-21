@@ -25,6 +25,7 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	@Setter(AccessLevel.PRIVATE)
 	private int id;
 	
