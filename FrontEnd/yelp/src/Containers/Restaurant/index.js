@@ -1,15 +1,4 @@
-import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
-import FlatButton from 'material-ui/FlatButton';
-import logo from './logo.png';
-import '../../style.css';
-
-const labelStyles = {
-  textTransform: 'capitalize'
-};
-
-export default class Navbar extends React.Component {
+export default class Restaurant extends React.Component {
 
   render() {
     return (
