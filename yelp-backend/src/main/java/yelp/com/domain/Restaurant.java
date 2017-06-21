@@ -1,10 +1,11 @@
-package domain;
+package yelp.com.domain;
 
 import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 
 @Data
 @AllArgsConstructor
