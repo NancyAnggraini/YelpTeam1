@@ -22,7 +22,7 @@ public class Review {
 	private String text;
 	private int rating;
 	private LocalDate dateCreated;
-	
+
 	@ManyToOne
 	private User user;
 }

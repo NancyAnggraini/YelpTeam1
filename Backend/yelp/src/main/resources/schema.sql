@@ -1,3 +1,4 @@
+
 CREATE TABLE user (
   
   id INTEGER (11) NOT NULL IDENTITY,
