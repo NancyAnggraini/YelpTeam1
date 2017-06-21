@@ -11,6 +11,8 @@ import Home from './Containers/Home';
 import Contact from './Containers/Contact';
 import About from './Containers/About';
 
+injectTapEventPlugin();
+
 ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
@@ -26,4 +28,3 @@ ReactDOM.render(
 document.getElementById('root'));
 
 registerServiceWorker();
-injectTapEventPlugin();

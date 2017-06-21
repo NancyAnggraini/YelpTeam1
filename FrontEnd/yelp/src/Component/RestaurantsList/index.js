@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   Table,
   TableBody,
@@ -9,32 +9,37 @@ import {
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
 
-class RestaurantsList extends Component {
-  render() {
-    console.log(this.props.restaurants);
-    return (
-      <div>
-        <Table>
-          <TableHeader diplayRowCheckbox={false} displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow>
-              <TableHeaderColumn>Name</TableHeaderColumn>
-              <TableHeaderColumn>Address</TableHeaderColumn>
-              <TableHeaderColumn>Phone</TableHeaderColumn>
-              <TableHeaderColumn>Website</TableHeaderColumn>
+// creat a component from the TableRow in the end
+// also as a functional component like this one
+
+const RestaurantsList = ({restaurants}) => {
+  console.log(restaurants);
+  return (
+    <Table>
+      <TableHeader diplayRowCheckbox={false} displaySelectAll={false} adjustForCheckbox={false}>
+        <TableRow>
+          <TableHeaderColumn>Name</TableHeaderColumn>
+          <TableHeaderColumn>Address</TableHeaderColumn>
+          <TableHeaderColumn>Phone</TableHeaderColumn>
+          <TableHeaderColumn>Website</TableHeaderColumn>
+        </TableRow>
+      </TableHeader>
+      <TableBody displayRowCheckbox={false}>
+        {restaurants.map((restaurant) => {
+          return (
+            <TableRow key={restaurant.id}>
+              <TableRowColumn>{restaurant.name}</TableRowColumn>
+              <TableRowColumn>{restaurant.address}</TableRowColumn>
+              <TableRowColumn>{restaurant.phone}</TableRowColumn>
+              <TableRowColumn>
+                <a href ={restaurant.web} target="_blank">{restaurant.web}</a>
+              </TableRowColumn>
             </TableRow>
-          </TableHeader>
-          <TableBody displayRowCheckbox={false}>
-            <TableRow>
-              <TableRowColumn>Ristorante Bindella</TableRowColumn>
-              <TableRowColumn>In Gassen 6 8001 Zurich</TableRowColumn>
-              <TableRowColumn>044 221 25 46</TableRowColumn>
-              <TableRowColumn>{'http://www.bindella.ch/de/bindella-zuerich.html'}</TableRowColumn>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </div>
-    );
-  }
+          )
+        })}
+      </TableBody>
+    </Table>
+  );
 };
 
 const mapStateToProps = (state) => ({restaurants: state.restaurants});
