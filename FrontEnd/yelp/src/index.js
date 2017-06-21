@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './Containers/App';
 import Contact from './Containers/Contact';
 import About from './Containers/About';
+import Restaurant from './Containers/Restaurant';
 
 ReactDOM.render(
   <MuiThemeProvider>
@@ -19,6 +20,7 @@ ReactDOM.render(
           <Route exact path = "/" component = { App } />
           <Route exact path = "/contact" component = { Contact } />
           <Route exact path = "/about" component = { About } />
+          <Route exact path = "/restaurant" component = { Restaurant } />
         </Switch>
       </Router>
     </Provider>

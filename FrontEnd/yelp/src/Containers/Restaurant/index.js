@@ -1,29 +1,25 @@
-export default class Restaurant extends React.Component {
+import React from 'react';
+import '../../style.css';
+import { connect } from 'react-redux';
+import Navbar from '../Navbar';
+
+class Restaurant extends React.Component {
 
   render() {
+    console.log(this.props);
+    
     return (
-      <Toolbar className="Navbar" >
-
-        <ToolbarGroup firstChild={true}>
-          <img src={logo} className="Yelp-logo" alt="logo" />
-          <div className="ContactButtons">
-            <FlatButton label="About" className="redBackground" labelStyle={ labelStyles } />
-            <FlatButton label="Contact" className="redBackground" labelStyle={ labelStyles } />
-          </div>
-          <form>
-            <input placeholder="Type a restaurant name" />
-            <RaisedButton label="Search" className="searchButton" labelStyle={ labelStyles } style={{ 'height': 24 }} />
-          </form>
-        </ToolbarGroup>
-
-        <ToolbarGroup >
-          <div className="SignButtons">
-            <FlatButton label="Sign In" primary={true} className="redBackground" labelStyle={ labelStyles }  />
-            <FlatButton label="Sign Up" secondary={true} className="redBackground" labelStyle={ labelStyles }  />
-          </div>
-        </ToolbarGroup>
-
-      </Toolbar>
+      <div> 
+        <Navbar />
+        <h1> Restaurant view - coming soon... </h1>
+      </div>
+      
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return state;
+}
+
+export default connect(mapStateToProps)(Restaurant);
