@@ -5,14 +5,13 @@ import {
 } from 'material-ui/Table';
 
 const  RestaurantsListItem = (props) => {
-  console.log("props: ", props);
   return (
           <TableRow>
             <TableRowColumn>{props.restaurant.name}</TableRowColumn>
             <TableRowColumn>{props.restaurant.address}</TableRowColumn>
             <TableRowColumn>{props.restaurant.phone}</TableRowColumn>
             <TableRowColumn>
-              <a href ={props.restaurant.web} target="_blank">{props.restaurant.web}</a>
+              <a href ={props.restaurant.web} rel="noopener norefferer" target="_blank" >{props.restaurant.web}</a>
             </TableRowColumn>
           </TableRow>
           )
