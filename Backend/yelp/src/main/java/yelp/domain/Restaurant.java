@@ -23,7 +23,7 @@ public class Restaurant {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(AccessLevel.PRIVATE)
-	private int id;
+	private long id;
 	
 	@Column(name = "name", nullable = false, length = 40)
 	private String name;
