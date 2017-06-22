@@ -27,9 +27,13 @@ public class DefaultRestaurantService implements RestaurantService {
 	}
 
 	@Override
-	public List<Restaurant> findRestaurantByName() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Restaurant> findRestaurantByName(String searchName) {
+		return this.restaurantRepository.findByNameContaining(searchName);
+	}
+
+	@Override
+	public Restaurant findById(Long id) {
+		return this.restaurantRepository.findById(id);
 	}
 
 }
