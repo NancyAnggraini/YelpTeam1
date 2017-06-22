@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './Containers/Home';
 import Contact from './Containers/Contact';
 import About from './Containers/About';
+import Restaurant from './Containers/Restaurant';
 import Navbar from './Containers/Navbar';
 
 injectTapEventPlugin();
@@ -20,9 +21,10 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Navbar>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/contact" component={Contact}/>
-          <Route exact path="/about" component={About}/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/restaurant/:restaurant_id" component={Restaurant} />
         </Navbar>
       </Switch>
     </Router>

@@ -1,16 +1,17 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo from './logo.png';
-import './style.css';
-import {Link} from 'react-router-dom';
+import '../../style.css';
 
 const labelStyles = {
   textTransform: 'capitalize'
 };
 
-export default class Navbar extends React.Component {
+class Navbar extends React.Component {
 
   render() {
     return (
@@ -50,3 +51,9 @@ export default class Navbar extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return state;
+}
+
+export default connect(mapStateToProps)(Navbar);
