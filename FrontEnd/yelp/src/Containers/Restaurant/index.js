@@ -2,6 +2,7 @@ import React from 'react';
 import '../../style.css';
 import { connect } from 'react-redux';
 import Navbar from '../Navbar';
+import logo from './notfound.png';
 import ReviewsList from '../../Components/ReviewsList';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import HalfStar from 'material-ui/svg-icons/toggle/star-half';
@@ -10,7 +11,6 @@ import Star from 'material-ui/svg-icons/toggle/star';
 class Restaurant extends React.Component {
 
   averageCalculator = (reviews) => {
-    // calculates average
     let totalReviews = 0;
     for (let i=0; i<reviews.length; i++) { 
         totalReviews += reviews[i].rate; 
@@ -20,9 +20,7 @@ class Restaurant extends React.Component {
   }
 
   averageStarsRender = (average) => {
-  // stars render
     let stars=[];
-    console.log('holaaaaaa')
     for (let i=1; i<=5; i++) {
       if (i <= average) { 
         stars.push(<Star color="yellow" />) 
@@ -36,9 +34,27 @@ class Restaurant extends React.Component {
   }
 
   render() {
+    // looks for restaurant info
+    let restaurant = false;
+    for (let i=0; i<this.props.restaurants.length; i++) {
+      if (this.props.restaurants[i].id === this.props.match.params.restaurant_id * 1) {
+        restaurant = this.props.restaurants[i];
+        break;
+      }
+    }
+    if (restaurant === false) {
+      return (
+          <div> 
+            <Navbar /><br/>
+            <div className="ErrorPage">
+              <img src={logo} />
+              <h1>Sorry... the restaurant is not in our database</h1>
+            </div>
+          </div>
+      );
+    }
     // extra variables
-    const restaurant = this.props.restaurants[1];
-    const reviews = this.props.restaurants[1].reviews;
+    const reviews = restaurant.reviews;
     const srcText = "http://maps.google.com/maps/api/staticmap?center="+restaurant.address+
     "&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:"+restaurant.address+"|"+restaurant.address;   
 

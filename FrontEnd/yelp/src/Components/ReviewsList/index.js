@@ -37,9 +37,8 @@ class ReviewsList extends React.Component {
 
         <TableBody displayRowCheckbox={false}>
         {reviews.map((review) => {
-          const lastName = review.user.lastName;
           return <TableRow className="ReviewsListItem" key={review.id} >
-            <TableRowColumn><b>{review.user.firstName} {this.initial(lastName)}. </b><br/><br/> {review.created_at} </TableRowColumn>
+            <TableRowColumn><b>{review.user.firstName} {this.initial(review.user.lastName)}. </b><br/><br/> {review.created_at} </TableRowColumn>
             <TableRowColumn> {this.starsRender(review.rate)} <br/><br/> {review.content} </TableRowColumn>
           </TableRow>
         })};

@@ -36,6 +36,10 @@ p {
 	font-size: 12px;
 }
 
+.ErrorPage {
+  text-align: center;
+}
+
 .RestaurantColumns {
 	display: inline-block;
 	margin-left: 40px;

@@ -14,7 +14,6 @@ const labelStyles = {
 class Navbar extends React.Component {
 
   render() {
-    console.log(this.props)
     return (
       <Toolbar className="Navbar" >
 
