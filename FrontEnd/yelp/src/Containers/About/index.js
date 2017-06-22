@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar';
 import './style.css';
 
 
@@ -7,7 +6,6 @@ class About extends Component {
   render() {
     return (
       <div>
-      <Navbar></Navbar>
         <div className="About">
           <h3>Welcome to Yelpdemo</h3>
             <p className="About-text">

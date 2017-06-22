@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar';
 import './style.css';
 
 class Contact extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
           <div className="ContactCombineElements">
             <h3> We would love to hear from you!</h3>
             <p className="Contact-email">

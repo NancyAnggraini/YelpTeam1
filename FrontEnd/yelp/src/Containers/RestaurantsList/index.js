@@ -13,7 +13,7 @@ import './style.css';
 import './city.png';
 
 const headerStyles = {
-  'font-weight': 'bold',
+  fontWeight: 'bold',
   color: 'black',
 };
 
