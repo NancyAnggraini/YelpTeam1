@@ -32,18 +32,21 @@ input {
 
 
 /* -- Restaurant Page --- */
+p {
+	font-size: 12px;
+}
+
 .TwoColumns {
-	display: inline-table;
-	color: blue;
+	display: inline-block;
 }
 
 .RestaurantInfo {
 	justify-content: left;
 }
 
-.ReviewsListItem {
+.ReviewsList {
 	margin-top: 30px; 
-	width: 40% !important;
+	width: 60% !important;
 }
 
 /* -- Contact Page -- */
