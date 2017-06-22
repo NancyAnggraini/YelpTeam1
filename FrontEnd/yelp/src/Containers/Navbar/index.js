@@ -13,6 +13,10 @@ const labelStyles = {
 
 class Navbar extends React.Component {
 
+  handleSearch = (event) => {
+    console.log('in da Search');
+  }
+
   render() {
     return (
       <div>
@@ -31,7 +35,7 @@ class Navbar extends React.Component {
               </Link>
             </div>
             <form>
-              <input placeholder="Type a restaurant name"/>
+              <input placeholder="Type a restaurant name" onChange={this.handleSearch}/>
               <RaisedButton label="Search" className="searchButton" labelStyle={labelStyles} style={{
                 'height': 24
               }}/>
