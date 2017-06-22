@@ -47,9 +47,13 @@ p {
 	width: 40% !important;
 }
 
+.ReviewsTable {
+	height: -100px;
+}
+
 .ReviewsList {
 	display: inline-block;
-	width: 60% !important;
+	width: 55% !important;
 }
 
 .crop {

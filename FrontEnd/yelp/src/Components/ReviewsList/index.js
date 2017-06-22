@@ -7,7 +7,6 @@ import {
 } from 'material-ui/Table';
 import '../../style.css';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import HalfStar from 'material-ui/svg-icons/toggle/star-half';
 import Star from 'material-ui/svg-icons/toggle/star';
 
 class ReviewsList extends React.Component {
@@ -24,17 +23,23 @@ class ReviewsList extends React.Component {
     return <div>{stars}</div>;
   }
 
+  initial = (lastName) => {
+    lastName.split("");
+    return lastName[0];
+  }
+
   render() {
     // extra variables
     const reviews = this.props.reviews; // array of reviews
 
     return (
-      <Table selectable={false}>
+      <Table selectable={false} className="ReviewsTable" >
 
         <TableBody displayRowCheckbox={false}>
-        {reviews.map((review, index) => {
-          return <TableRow className="ReviewsListItem" key={index}>
-            <TableRowColumn><b>{review.user.firstName} S. </b><br/><br/> {review.created_at} </TableRowColumn>
+        {reviews.map((review) => {
+          const lastName = review.user.lastName;
+          return <TableRow className="ReviewsListItem" key={review.id} >
+            <TableRowColumn><b>{review.user.firstName} {this.initial(lastName)}. </b><br/><br/> {review.created_at} </TableRowColumn>
             <TableRowColumn> {this.starsRender(review.rate)} <br/><br/> {review.content} </TableRowColumn>
           </TableRow>
         })};
