@@ -9,7 +9,7 @@ class Contact extends Component {
           {'We would love to hear from you!'}
         </p>
         <p className="Contact-email">
-          Contact us at <a href= {'#'}>thisleadsnowehre@yelpexample.com</a>
+          Contact us at <a href='#'>thisleadsnowehre@yelpexample.com</a>
         </p>
       </div>
     );

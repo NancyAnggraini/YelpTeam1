@@ -15,7 +15,6 @@ const initialState = [
 	}
 ]
 
-
 const restaurants = (state = initialState, action) => {
   return state;
 }

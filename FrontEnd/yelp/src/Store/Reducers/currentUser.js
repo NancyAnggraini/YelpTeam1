@@ -1,5 +1,3 @@
-
-
 const currentUser = (state = {}, action) => {
   return state;
 }

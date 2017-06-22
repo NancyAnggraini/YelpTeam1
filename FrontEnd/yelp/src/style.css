@@ -31,6 +31,21 @@ input {
 }
 
 
+/* -- Restaurant Page --- */
+.TwoColumns {
+	display: inline-table;
+	color: blue;
+}
+
+.RestaurantInfo {
+	justify-content: left;
+}
+
+.ReviewsListItem {
+	margin-top: 30px; 
+	width: 40% !important;
+}
+
 /* -- Contact Page -- */
 .Contact {
   margin-top: 50px;
