@@ -14,7 +14,7 @@ const labelStyles = {
 class Navbar extends React.Component {
 
   handleSearch = (event) => {
-    console.log('in da Search');
+    console.log(event.currentTarget.value);
   }
 
   render() {
