@@ -9,29 +9,33 @@ import '../../style.css';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import HalfStar from 'material-ui/svg-icons/toggle/star-half';
 import Star from 'material-ui/svg-icons/toggle/star';
+
 class ReviewsList extends React.Component {
   
   starsRender = (rate) => {
-    for (let i="*"; i.length<=5; i += "*") {
-        if (i.length === rate) return i;       
+    let stars=[];
+    for (let i=1; i<=5; i++) {
+      if (i <= rate) { 
+        stars.push(<Star color="yellow" />) 
+      } else {
+        stars.push(<StarBorder color="grey" />)  
+      }
     }
+    return <div>{stars}</div>;
   }
-
 
   render() {
     // extra variables
     const reviews = this.props.reviews; // array of reviews
-    const rate = reviews.rate;
 
     return (
-      <Table selectable={false} className="ReviewsList">
+      <Table selectable={false}>
 
         <TableBody displayRowCheckbox={false}>
         {reviews.map((review, index) => {
-          
           return <TableRow className="ReviewsListItem" key={index}>
             <TableRowColumn><b>{review.user.firstName} S. </b><br/><br/> {review.created_at} </TableRowColumn>
-            <TableRowColumn> <div>{this.starsRender(review.rate)}</div> <br/><br/> {review.content} </TableRowColumn>
+            <TableRowColumn> {this.starsRender(review.rate)} <br/><br/> {review.content} </TableRowColumn>
           </TableRow>
         })};
         </TableBody>
@@ -43,5 +47,3 @@ class ReviewsList extends React.Component {
 }
 
 export default ReviewsList;
-
-
