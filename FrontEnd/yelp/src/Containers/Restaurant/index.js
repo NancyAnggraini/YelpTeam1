@@ -45,7 +45,7 @@ class Restaurant extends React.Component {
     if (restaurant === false) {
       return (
           <div> 
-            <Navbar /><br/>
+            <br/>
             <div className="ErrorPage">
               <img src={logo} />
               <h1>Sorry... the restaurant is not in our database</h1>
@@ -60,7 +60,6 @@ class Restaurant extends React.Component {
 
     return (
       <div> 
-        <Navbar />
         <div className="RestaurantColumns">
 
           <div className="RestaurantInfo">

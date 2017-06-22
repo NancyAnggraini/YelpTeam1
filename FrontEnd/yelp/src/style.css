@@ -73,15 +73,11 @@ p {
 }
 
 /* -- Contact Page -- */
-.Contact {
+.ContactCombineElements {
   margin-top: 50px;
   margin-left: 95px;
-  margin-right: 100px;
+  margin-right: 95px;
   text-align: left;
-}
-
-.Contact-intro {
-  font-size: 30px;
 }
 
 .Contact-email {
