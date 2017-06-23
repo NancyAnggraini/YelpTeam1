@@ -3,21 +3,11 @@ package yelp.repository;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import yelp.AbstractYelpIntegrationTests;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.NONE)
-@Transactional
-@Sql("/test-data.sql")
-public class RestaurantRepositoryTest extends AbstractYelpIntegrationTests{
+public class RestaurantRepositoryTest extends AbstractYelpIntegrationTests {
 
 	@Autowired
 	RestaurantRepository repository;
@@ -30,5 +20,16 @@ public class RestaurantRepositoryTest extends AbstractYelpIntegrationTests{
 	@Test
 	public void findById(){
 		assertThat(repository.findById(1L).getName()).isEqualTo("testRestaurantName");
+	}
+	
+	@Test
+	public void findAll(){
+		assertThat(repository.findAll().size()).isEqualTo((int) repository.count());		
+	}
+	
+	@Test
+	public void findByRestaurantName(){
+		assertThat(repository.findByNameContaining("2").size()).isEqualTo(1);
+		assertThat(repository.findByNameContaining("testRestaurantName").size()).isEqualTo(3);
 	}
 }

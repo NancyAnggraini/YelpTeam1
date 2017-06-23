@@ -10,10 +10,10 @@ import yelp.domain.Restaurant;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 	
-	//Return a restaurant by id
+	//Select * from Restaurant where id = :id
 	Restaurant findById(Long id);
 	
-	//Return a list of restaurants by name
+	//Select * from Restaurant where name like :name
 	List <Restaurant> findByNameContaining (String searchName);
 
 }

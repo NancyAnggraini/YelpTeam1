@@ -11,3 +11,4 @@ insert into review(id,create_at, user_id, restaurant_id, content, rate) values(1
 insert into review(id,create_at, user_id, restaurant_id, content, rate) values(2,{ts '2017-01-01 00:00:00.00'} , 1, 2, 'irgendwas text2..', 2);
 
 insert into review(id,create_at, user_id, restaurant_id, content, rate) values(3,{ts '2017-01-01 00:00:00.00'} , 2, 1, 'irgendwas text3..', 3);
+
