@@ -41,14 +41,13 @@ p {
 }
 
 .RestaurantColumns {
-	display: inline-block;
 	margin-left: 40px;
 	margin-top: 30px;
 }
 
 .RestaurantInfo {
-	display: inline-block;
 	width: 40% !important;
+  float: left;
 }
 
 .ReviewsTable {
@@ -56,8 +55,8 @@ p {
 }
 
 .ReviewsList {
-	display: inline-block;
 	width: 55% !important;
+  float: right;
 }
 
 .crop {
@@ -101,4 +100,19 @@ p {
 .About-text {
   font-size: 15px;
 
+}
+
+/* -- SignIn Page -- */
+.SignIn {
+  margin-top: 100px;
+  text-align: center;
+}
+
+/* -- SignUp Page -- */
+.SignUp {
+  margin-top: 100px;
+  text-align: center;
+}
+.SignUpForm {
+  margin-top: 50px;
 }
