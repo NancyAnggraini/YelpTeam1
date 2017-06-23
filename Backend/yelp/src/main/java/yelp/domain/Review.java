@@ -47,8 +47,8 @@ public class Review {
 
 	public Review(String text, int rating, LocalDateTime dateCreated, User user, Restaurant restaurant) {
 		// super();
-		this.text = text;
-		this.rating = rating;
+		this.content = text;
+		this.rate = rating;
 		this.dateCreated = dateCreated;
 		this.user = user;
 		this.restaurant = restaurant;
