@@ -4,8 +4,7 @@ import {
   TableBody,
   TableHeader,
   TableHeaderColumn,
-  TableRow,
-  TableRowColumn
+  TableRow
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
 import RestaurantsListItem from '../../Component/RestaurantsListItem'
@@ -42,7 +41,7 @@ const RestaurantsList = ({restaurants}) => {
           </TableBody>
         </Table>
       </div>
-      <img className="RestaurantsList-Image" src = {require('./city.png')}/>
+      <img className="RestaurantsList-Image" alt="cityLogo" src = {require('./city.png')}/>
     </div>
 
   );
