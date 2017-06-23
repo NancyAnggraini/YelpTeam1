@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import yelp.domain.Restaurant;
 import yelp.domain.Review;
 import yelp.repository.ReviewRepository;
 
@@ -24,6 +25,11 @@ public class DefaultReviewService implements ReviewService {
 	public DefaultReviewService(ReviewRepository reviewRepository) {
 
 		this.reviewRepository = reviewRepository;
+	}
+	
+	@Override
+	public Review findReviewById(Long id) {
+		return this.reviewRepository.findById(id);
 	}
 
 	@Override
