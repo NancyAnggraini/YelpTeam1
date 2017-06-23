@@ -53,6 +53,7 @@ class Restaurant extends React.Component {
       <div> 
         <div className="RestaurantColumns">
 
+
           <div className="RestaurantInfo">
             <img  className="RestaurantLogo" src="http://www.echorestaurant.ch/wp-content/uploads/sites/9/2015/10/logo-echo.png" style={{"backgroundColor":"black"}}/>
             <h3>{ restaurant.name }</h3>
