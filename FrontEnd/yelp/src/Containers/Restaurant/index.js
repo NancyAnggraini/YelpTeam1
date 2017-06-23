@@ -22,14 +22,14 @@ class Restaurant extends React.Component {
     let stars=[];
     for (let i=1; i<=5; i++) {
       if (i <= average) { 
-        stars.push(<Star color="yellow" />) 
+        stars.push(<Star key={i} color="yellow" />) 
       } else if (i - average > 0.01 && i - average < 0.99) {
-        stars.push(<HalfStar color="yellow" />) 
+        stars.push(<HalfStar key={i} color="yellow" />) 
       } else {
-        stars.push(<StarBorder color="grey" />)  
+        stars.push(<StarBorder key={i} color="grey" />)  
       }
     }
-    return <div>{stars}</div>;
+    return <p>{stars}</p>;
   }
 
   render() {
@@ -56,7 +56,7 @@ class Restaurant extends React.Component {
           <div className="RestaurantInfo">
             <img  className="RestaurantLogo" src="http://www.echorestaurant.ch/wp-content/uploads/sites/9/2015/10/logo-echo.png" style={{"backgroundColor":"black"}}/>
             <h3>{ restaurant.name }</h3>
-            <p> {this.averageStarsRender(this.averageCalculator(reviews))} </p>
+            <div> {this.averageStarsRender(this.averageCalculator(reviews))} </div>
             <p> {reviews.length} Reviews </p>
             <p><b>Address:</b> {restaurant.address} </p>
             <p><b>Phone: </b> {restaurant.phone} </p>
