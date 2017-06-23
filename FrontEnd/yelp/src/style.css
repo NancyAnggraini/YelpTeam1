@@ -123,6 +123,6 @@ p {
   text-align: center;
 }
 
-.reviewStar:hover {
-  background-color: yellow; 
+.reviewStars {
+  display: inline-block;
 }

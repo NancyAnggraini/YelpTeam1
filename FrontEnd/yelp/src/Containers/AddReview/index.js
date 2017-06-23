@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import '../../style.css';
 import { RaisedButton } from 'material-ui';
 import TextField from 'material-ui/TextField';
+import ReactStars from 'react-stars'
+
+const ratingChanged = (newRating) => {
+  console.log(newRating)
+}
 
 class AddReview extends Component {
 
@@ -26,6 +31,9 @@ class AddReview extends Component {
     return (
       <div className="AddReview">
         <h3>Add a new review for {restaurantName}:</h3>
+        <div className="reviewStars">
+          <ReactStars count={5} onChange={ratingChanged} size={30}  color2={'#ffd700'} half={false} />
+        </div> 
         <form className="AddReviewForm">
           <TextField hintText="Share your experience" onChange={ this.handleContent }/> <br />
           <RaisedButton type="submit" label="Add review" />
