@@ -1,6 +1,9 @@
 package yelp.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +25,7 @@ public class RestUserController {
 	public RestUserController (UserService userService){
 		this.userService = userService;
 	}
+
 		
 	//CHECK!!!!!! This class can be working different, in the example we had
 	// from Sam it was working different, but it should work!
@@ -30,5 +34,7 @@ public class RestUserController {
 	public User registerNewUser(@RequestBody User postedUser) {
 		return userService.registerNewUser(postedUser);
 	}
+	
+	
 	
 }
