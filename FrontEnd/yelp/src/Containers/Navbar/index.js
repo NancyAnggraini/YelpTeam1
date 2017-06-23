@@ -10,9 +10,7 @@ import qs from 'query-string';
 
 const labelStyles = {
   textTransform: 'capitalize'
-};
-
-console.log(this.state);
+}
 
 class Navbar extends React.Component {
 
@@ -33,8 +31,6 @@ class Navbar extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const restaurants = this.props.restaurants;
-    console.log(restaurants);
-    console.log(this.state);
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
     //try to do the same on hitting enter not just click on the searchButton
     }

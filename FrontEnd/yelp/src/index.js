@@ -7,10 +7,10 @@ import store from './Store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './Containers/Home';
+import Home from './Routes/Home';
 import Contact from './Routes/Contact';
 import About from './Routes/About';
-import Restaurant from './Containers/Restaurant';
+import Restaurant from './Routes/Restaurant';
 import Navbar from './Containers/Navbar';
 import Search from './Routes/Search';
 
