@@ -48,11 +48,12 @@ public class User {
 		/* default constructor: required by JPA */
 	}
 	
-	public User (String firstName, String lastName, String email, String password, String token){
+	public User (String firstName, String lastName, String email, String password, String token, List <Review> reviews){
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.token = token;
+		this.reviews = reviews;
 	}
 }

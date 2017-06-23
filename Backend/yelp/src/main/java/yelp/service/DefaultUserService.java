@@ -59,5 +59,13 @@ public class DefaultUserService implements UserService{
 				() -> new EntityNotFoundException("Could not find User with ID [" + id + "]"));
 	}
 
+	@Override
+	public void anonymize(User user) {
+		user.setEmail(user.getId()+"@anonymous.com");
+		user.setFirstName("Anonymous");
+		user.setLastName("");
+		userRepository.save(user);		
+	}
+
 
 }

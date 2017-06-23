@@ -8,7 +8,7 @@ public class UserDomainTest {
 
 	@Test
 	public void createUser() {
-		User rest1 = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123");
+		User rest1 = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123", null);
 		assertEquals("popopo@pepepe.com", rest1.getEmail());
 	}
 }
