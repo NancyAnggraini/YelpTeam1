@@ -2,7 +2,6 @@ import React from 'react';
 import '../../style.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Navbar from '../Navbar';
 import ReviewsList from '../../Components/ReviewsList';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import HalfStar from 'material-ui/svg-icons/toggle/star-half';
