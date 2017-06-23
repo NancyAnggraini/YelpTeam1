@@ -64,7 +64,7 @@ public class ReviewRepositoryTest extends AbstractYelpIntegrationTests{
 	
 	@Test
 	public void findById(){
-		assertThat(repository.findById(2L).getText()).isEqualTo("irgendwas text2..");
+		assertThat(repository.findById(2L).getContent()).isEqualTo("irgendwas text2..");
 	
 		
 	}

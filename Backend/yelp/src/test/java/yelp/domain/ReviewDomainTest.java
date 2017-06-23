@@ -22,14 +22,14 @@ public class ReviewDomainTest {
 	@Test
 	public void createReview() {
 		
-		Restaurant rest1 = new Restaurant("Test Restaurant Name", "pepe, 8", "asd@asd.com", "123456789", "logo.jpg", "www.lamacarena.com");
+		Restaurant rest1 = new Restaurant("Test Restaurant Name", "pepe, 8", "asd@asd.com", "123456789", "logo.jpg", "www.lamacarena.com", null);
 		assertEquals("123456789", rest1.getPhone());
 //		(String text, int rating, LocalDate dateCreated, User user, Restaurant restaurant);
 		Review rev1 = new Review("irgendwas text1..", 3, LocalDateTime.now(), new User(), rest1);
 		Review rev2 = new Review("irgendwas text2..", 4, LocalDateTime.now(), new User(), rest1);
 		Review rev3 = new Review("irgendwas text3..", 2, LocalDateTime.now(), new User(), rest1);
-		assertEquals("irgendwas text1..", rev1.getText());
-		assertEquals(2, rev3.getRating());
+		assertEquals("irgendwas text1..", rev1.getContent());
+		assertEquals(2, rev3.getRate());
 		assertEquals("asd@asd.com", rev2.getRestaurant().getEmail());
 		
 		
@@ -58,13 +58,13 @@ public class ReviewDomainTest {
 	@Test
 	public void findReviewByUserId () {
 
-		User user1 = new User(1L,"testFirstName", "testLastName", "test@test.ch", "testpw", "testToken");
-		User user2 = new User(2L,"testFirstName2", "testLastName2", "test2@test.ch", "testpw2", "testToken2");
-		User user3 = new User(3L,"testFirstName3", "testLastName3", "test3@test.ch", "testpw3", "testToken3");
+		User user1 = new User(1L,"testFirstName", "testLastName", "test@test.ch", "testpw", "testToken", null);
+		User user2 = new User(2L,"testFirstName2", "testLastName2", "test2@test.ch", "testpw2", "testToken2", null);
+		User user3 = new User(3L,"testFirstName3", "testLastName3", "test3@test.ch", "testpw3", "testToken3", null);
 		
-		Restaurant restaurant1 = new Restaurant(1L, "testLogo", "testRestaurantName", "testAddress", "0123456789", "testrestaurant@test.ch", "testuri"); 
-		Restaurant restaurant2 = new Restaurant(2L, "testLogo2", "testRestaurantName2", "testAddress2", "012345678922", "testrestaurant2@test.ch", "testuri2"); 
-		Restaurant restaurant3 = new Restaurant(3L, "testLogo3", "testRestaurantName3", "testAddress3", "012345678933", "testrestaurant3@test.ch", "testuri3"); 
+		Restaurant restaurant1 = new Restaurant(1L, "testLogo", "testRestaurantName", "testAddress", "0123456789", "testrestaurant@test.ch", "testuri", null); 
+		Restaurant restaurant2 = new Restaurant(2L, "testLogo2", "testRestaurantName2", "testAddress2", "012345678922", "testrestaurant2@test.ch", "testuri2", null); 
+		Restaurant restaurant3 = new Restaurant(3L, "testLogo3", "testRestaurantName3", "testAddress3", "012345678933", "testrestaurant3@test.ch", "testuri3", null); 
 		
 		Review rev1 = new Review("irgendwas text1..", 3, LocalDateTime.now(), user1, restaurant1);
 		Review rev2 = new Review("irgendwas text2..", 4, LocalDateTime.now(), user2, restaurant2);
