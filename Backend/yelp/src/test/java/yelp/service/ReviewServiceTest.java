@@ -13,7 +13,9 @@ import yelp.AbstractYelpIntegrationTests;
 import yelp.domain.Restaurant;
 import yelp.domain.Review;
 import yelp.domain.User;
+import yelp.repository.RestaurantRepository;
 import yelp.repository.ReviewRepository;
+import yelp.repository.UserRepository;
 
 public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 
@@ -22,6 +24,12 @@ public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 
 	@Autowired
 	ReviewRepository repository;
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	RestaurantRepository restaurantRepository;
 
 	@Test
 	public void findReviewByIdTest() {
@@ -66,12 +74,19 @@ public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 	@Test
 	public void createNewReviewTest() {
 		assertThat(repository.count()).isEqualTo(3);
-		User user1 = new User(1L, "testFirstName", "testLastName", "test@test.ch", "testpw", "testToken", null);
-		Restaurant restaurant1 = new Restaurant(1L, "testLogo", "testRestaurantName", "testAddress", "0123456789",
-				"testrestaurant@test.ch", "testuri", null);
+		
+		List <User> userList = userRepository.findAll(); 
+		User user1 = userList.get(0); 
+		List <Restaurant> restaurantList = restaurantRepository.findAll(); 
+		Restaurant restaurant1 = restaurantList.get(0); 
+		
 		Review review = new Review("something text1..", 3, LocalDateTime.now(), user1, restaurant1);
 		service.create(review);
 		assertThat(repository.count()).isEqualTo(4);
+		
+		assertThat(review.getUser().getId()).isEqualTo(1);
+		assertThat(review.getRestaurant().getId()).isEqualTo(1);
+		
 	}
 
 }
