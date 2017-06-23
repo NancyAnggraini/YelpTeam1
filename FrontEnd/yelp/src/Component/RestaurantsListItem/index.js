@@ -11,7 +11,7 @@ const  RestaurantsListItem = (props) => {
             <TableRowColumn>{props.restaurant.address}</TableRowColumn>
             <TableRowColumn>{props.restaurant.phone}</TableRowColumn>
             <TableRowColumn>
-              <a href ={props.restaurant.web} rel="noopener norefferer" target="_blank" >{props.restaurant.web}</a>
+              <a href ={props.restaurant.web} rel="noopener noreferer" target="_blank" >{props.restaurant.web}</a>
             </TableRowColumn>
           </TableRow>
           )
