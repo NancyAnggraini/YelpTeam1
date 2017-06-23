@@ -1,21 +1,43 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import FlatButton from 'material-ui/FlatButton';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 import logo from './logo.png';
 import '../../style.css';
+import qs from 'query-string';
 
 const labelStyles = {
   textTransform: 'capitalize'
 };
 
+console.log(this.state);
+
 class Navbar extends React.Component {
 
-  handleSearch = (event) => {
-    console.log(event.currentTarget.value);
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+      query: ''
+    }
   }
+
+  handleSearch = (e) => {
+    const query = e.currentTarget.value;
+    this.setState({query: query});
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const restaurants = this.props.restaurants;
+    console.log(restaurants);
+    console.log(this.state);
+    this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
+    //try to do the same on hitting enter not just click on the searchButton
+    }
 
   render() {
     return (
@@ -34,9 +56,9 @@ class Navbar extends React.Component {
                 <FlatButton label="Contact" className="redBackground" labelStyle={labelStyles}/>
               </Link>
             </div>
-            <form>
+            <form >
               <input placeholder="Type a restaurant name" onChange={this.handleSearch}/>
-              <RaisedButton label="Search" className="searchButton" labelStyle={labelStyles} style={{
+              <RaisedButton onClick={this.handleSubmit} label="Search" className="searchButton" labelStyle={labelStyles} style={{
                 'height': 24
               }}/>
             </form>
@@ -56,8 +78,6 @@ class Navbar extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
-}
+const mapStateToProps = (state) => ({restaurants: state.restaurants});
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps)(withRouter(Navbar));

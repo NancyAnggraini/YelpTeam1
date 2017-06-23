@@ -17,6 +17,8 @@ const headerStyles = {
   color: 'black',
 };
 
+
+
 const RestaurantsList = ({restaurants}) => {
   return (
     <div className="CombineElements">

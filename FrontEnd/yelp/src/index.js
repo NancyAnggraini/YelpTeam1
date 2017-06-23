@@ -12,8 +12,11 @@ import Contact from './Containers/Contact';
 import About from './Containers/About';
 import Restaurant from './Containers/Restaurant';
 import Navbar from './Containers/Navbar';
+import Search from './Routes/Search';
 
 injectTapEventPlugin();
+
+// MuiThemeProvider needs to be the outermost for the routing to work correctly
 
 ReactDOM.render(
   <MuiThemeProvider>
@@ -25,6 +28,7 @@ ReactDOM.render(
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/restaurant/:restaurant_id" component={Restaurant} />
+          <Route exact path="/search" component={Search} />
         </Navbar>
       </Switch>
     </Router>
