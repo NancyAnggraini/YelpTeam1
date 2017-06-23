@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = { "id", "dateCreated" })
-public class Review {
+public class Review2Copy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,11 +36,11 @@ public class Review {
 	@ManyToOne
 	private Restaurant restaurant;
 
-	public Review() {
+	public Review2Copy() {
 		// JPA required :)
 	}
 
-	public Review(String text, int rating, LocalDateTime dateCreated, User user, Restaurant restaurant) {
+	public Review2Copy(String text, int rating, LocalDateTime dateCreated, User user, Restaurant restaurant) {
 		// super();
 		this.text = text;
 		this.rating = rating;

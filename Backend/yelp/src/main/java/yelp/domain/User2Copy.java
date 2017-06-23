@@ -13,9 +13,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = {"id"})
-public class User {
+public class User2Copy {
 	
-	public User () {
+	public User2Copy () {
 		
 	}
 	@Id

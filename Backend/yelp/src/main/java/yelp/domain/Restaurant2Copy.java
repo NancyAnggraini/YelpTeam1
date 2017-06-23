@@ -18,7 +18,7 @@ import lombok.Setter;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "id")
-public class Restaurant {
+public class Restaurant2Copy {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,11 +43,11 @@ public class Restaurant {
 	@Column(name = "uri", nullable = false, length = 75)
 	private String uri;
 	
-	public Restaurant() {
+	public Restaurant2Copy() {
 		/* default constructor: required by JPA */
 	}
 	
-	public Restaurant (String name, String address, String email, String phone, String logo, String uri){
+	public Restaurant2Copy (String name, String address, String email, String phone, String logo, String uri){
 		this.name = name;
 		this.address = address;
 		this.email = email;
