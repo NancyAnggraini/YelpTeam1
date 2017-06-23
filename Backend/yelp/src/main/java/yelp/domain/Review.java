@@ -1,6 +1,7 @@
 package yelp.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,34 +21,36 @@ import lombok.EqualsAndHashCode;
 @Table(name = "review")
 @EqualsAndHashCode(exclude = {"id", "dateCreated"})
 public class Review {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	@Column(name = "text", nullable = false, length = 1000)
-	private String text;
-	
-	@Column(name = "rating", nullable = false, length = 1)
-	private int rating;
-	
-	@Column(name = "date_created", updatable = false, nullable = false)
-	private LocalDate dateCreated;
-	
-	@ManyToOne(optional=false)
+	private Long id;
+  
+	@Column(name = "content", nullable = true, length = 1000)
+	private String content;
+  
+	@Column(name = "rate", nullable = true, length = 1)
+	private int rate;
+  
+	@Column(name = "create_at", nullable = true)
+	private LocalDateTime dateCreated;
+
+	@ManyToOne
 	private User user;
-	
-	@ManyToOne(optional=false)
+
+	@ManyToOne
 	private Restaurant restaurant;
-	
-	public Review () {
-		
+
+	public Review() {
+		// JPA required :)
 	}
-	
-	public Review (String text, int rating, LocalDate dateCreated, Restaurant restaurant, User user) {
+
+	public Review(String text, int rating, LocalDateTime dateCreated, User user, Restaurant restaurant) {
+		// super();
 		this.text = text;
 		this.rating = rating;
-		this.dateCreated=dateCreated;
-		this.restaurant = restaurant;
+		this.dateCreated = dateCreated;
 		this.user = user;
+		this.restaurant = restaurant;
 	}
 }
