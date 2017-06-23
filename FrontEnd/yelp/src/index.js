@@ -12,6 +12,8 @@ import Contact from './Containers/Contact';
 import About from './Containers/About';
 import Restaurant from './Containers/Restaurant';
 import Navbar from './Containers/Navbar';
+import Login from './Containers/Login';
+import SignUp from './Containers/SignUp';
 
 injectTapEventPlugin();
 
@@ -25,6 +27,8 @@ ReactDOM.render(
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/restaurant/:restaurant_id" component={Restaurant} />
+          <Route exact path="/users/sign_in" component={Login} />
+          <Route exact path="/users/sign_up" component={SignUp} />
         </Navbar>
       </Switch>
     </Router>

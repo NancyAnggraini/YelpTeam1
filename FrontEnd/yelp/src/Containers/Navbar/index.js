@@ -40,8 +40,12 @@ class Navbar extends React.Component {
 
           <ToolbarGroup >
             <div className="SignButtons">
-              <FlatButton label="Sign In" primary={true} className="redBackground" labelStyle={labelStyles}/>
-              <FlatButton label="Sign Up" secondary={true} className="redBackground" labelStyle={labelStyles}/>
+              <Link to="/users/sign_in">
+                <FlatButton label="Sign In" primary={true} className="redBackground" labelStyle={labelStyles}/>
+              </Link>
+              <Link to="/users/sign_up">
+                <FlatButton label="Sign Up" secondary={true} className="redBackground" labelStyle={labelStyles}/>
+              </Link>
             </div>
           </ToolbarGroup>
 

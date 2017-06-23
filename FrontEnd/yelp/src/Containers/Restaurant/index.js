@@ -24,7 +24,7 @@ class Restaurant extends React.Component {
     for (let i=1; i<=5; i++) {
       if (i <= average) { 
         stars.push(<Star color="yellow" />) 
-      } else if (i - average === 0.5) {
+      } else if (i - average > 0.01 && i - average < 0.99) {
         stars.push(<HalfStar color="yellow" />) 
       } else {
         stars.push(<StarBorder color="grey" />)  
@@ -42,22 +42,10 @@ class Restaurant extends React.Component {
         break;
       }
     }
-    if (restaurant === false) {
-      return (
-          <div> 
-            <br/>
-            <div className="ErrorPage">
-              <img src={logo} />
-              <h1>Sorry... the restaurant is not in our database</h1>
-            </div>
-          </div>
-      );
-    }
     // extra variables
     const reviews = restaurant.reviews;
-    const srcText = "http://maps.google.com/maps/api/staticmap?center="+restaurant.address+
-    "&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:"+restaurant.address+"|"+restaurant.address;   
-
+    const srcText = "http://maps.google.com/maps/api/staticmap?center= "+restaurant.address+
+    "&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:"+restaurant.address+"|"+restaurant.address+"";   
     return (
       <div> 
         <div className="RestaurantColumns">
