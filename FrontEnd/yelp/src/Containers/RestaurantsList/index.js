@@ -8,7 +8,7 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
-import RestaurantsListItem from '../../Component/RestaurantsListItem'
+import RestaurantsListItem from '../../Components/RestaurantsListItem'
 import './style.css';
 import './city.png';
 
