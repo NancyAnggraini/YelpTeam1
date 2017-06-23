@@ -1,11 +1,20 @@
 package yelp.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -43,17 +52,21 @@ public class Restaurant {
 	@Column(name = "uri", nullable = false, length = 75)
 	private String uri;
 	
+	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+	private List <Review> reviews;
+	
 	public Restaurant() {
 		/* default constructor: required by JPA */
 	}
 	
-	public Restaurant (String name, String address, String email, String phone, String logo, String uri){
+	public Restaurant (String name, String address, String email, String phone, String logo, String uri, List<Review> reviews){
 		this.name = name;
 		this.address = address;
 		this.email = email;
 		this.phone = phone;
 		this.logo = logo;
 		this.uri = uri;
+		this.reviews = reviews;
 	}
 	
 }

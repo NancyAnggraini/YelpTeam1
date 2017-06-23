@@ -6,3 +6,7 @@ insert into user(id, first_name, last_name, email, password, token) values(3, 't
 insert into restaurant(id, logo, name, address, phone, email, uri) values(1, 'testLogo', 'testRestaurantName', 'testAddress', '0123456789', 'testrestaurant@test.ch', 'testuri');
 insert into restaurant(id, logo, name, address, phone, email, uri) values(2, 'testLogo2', 'testRestaurantName2', 'testAddress2', '01234567892', 'testrestaurant2@test.ch', 'testuri2');
 insert into restaurant(id, logo, name, address, phone, email, uri) values(3, 'testLogo3', 'testRestaurantName3', 'testAddress3', '01234567893', 'testrestaurant3@test.ch', 'testuri3');
+
+insert into review(id, date_created, user_id, restaurant_id, text, rating) values (1,10,1,1,'Good', 4);
+insert into review(id, date_created, user_id, restaurant_id, text, rating) values (2,10,1,2,'Not bad', 3);
+insert into review(id, date_created, user_id, restaurant_id, text, rating) values (3,10,2,1,'Could be better', 2);
