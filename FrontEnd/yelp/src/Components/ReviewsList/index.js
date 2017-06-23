@@ -15,9 +15,9 @@ class ReviewsList extends React.Component {
     let stars=[];
     for (let i=1; i<=5; i++) {
       if (i <= rate) { 
-        stars.push(<Star color="yellow" />) 
+        stars.push(<Star key={i} color="yellow" />) 
       } else {
-        stars.push(<StarBorder color="grey" />)  
+        stars.push(<StarBorder key={i} color="grey" />)  
       }
     }
     return <div>{stars}</div>;
