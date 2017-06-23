@@ -41,13 +41,11 @@ p {
 }
 
 .RestaurantColumns {
-	/*display: inline-block;*/
 	margin-left: 40px;
 	margin-top: 30px;
 }
 
 .RestaurantInfo {
-	/*display: inline-block;*/
 	width: 40% !important;
   float: left;
 }
@@ -57,7 +55,6 @@ p {
 }
 
 .ReviewsList {
-	/*display: inline-block;*/
 	width: 55% !important;
   float: right;
 }
