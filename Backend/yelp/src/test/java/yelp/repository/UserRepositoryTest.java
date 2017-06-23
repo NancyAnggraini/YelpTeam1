@@ -46,7 +46,7 @@ public class UserRepositoryTest extends AbstractYelpIntegrationTests{
 	@Test
 	public void save() {
 		assertThat(repository.count()).isEqualTo(3);
-		User newUser = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123");
+		User newUser = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123", null);
 		repository.save(newUser);
 		assertThat(repository.count()).isEqualTo(4);
 	}

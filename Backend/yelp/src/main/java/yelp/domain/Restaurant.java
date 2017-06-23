@@ -52,7 +52,7 @@ public class Restaurant {
 	@Column(name = "uri", nullable = false, length = 75)
 	private String uri;
 	
-	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
 	private List <Review> reviews;
 	
 	public Restaurant() {
