@@ -116,3 +116,13 @@ p {
 .SignUpForm {
   margin-top: 50px;
 }
+
+/* -- AddReview Page -- */
+.AddReview {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.reviewStar:hover {
+  background-color: yellow; 
+}

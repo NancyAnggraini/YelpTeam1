@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../style.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Navbar from '../Navbar';
-import logo from './notfound.png';
 import ReviewsList from '../../Components/ReviewsList';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import HalfStar from 'material-ui/svg-icons/toggle/star-half';
@@ -34,10 +34,11 @@ class Restaurant extends React.Component {
   }
 
   render() {
+    const restaurantId = this.props.match.params.restaurant_id;
     // looks for restaurant info
     let restaurant = false;
     for (let i=0; i<this.props.restaurants.length; i++) {
-      if (this.props.restaurants[i].id === this.props.match.params.restaurant_id * 1) {
+      if (this.props.restaurants[i].id === restaurantId * 1) {
         restaurant = this.props.restaurants[i];
         break;
       }
@@ -46,6 +47,8 @@ class Restaurant extends React.Component {
     const reviews = restaurant.reviews;
     const srcText = "http://maps.google.com/maps/api/staticmap?center= "+restaurant.address+
     "&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:"+restaurant.address+"|"+restaurant.address+"";   
+    const linkText = "/restaurant/"+this.props.match.params.restaurant_id+"/reviews/new";
+
     return (
       <div> 
         <div className="RestaurantColumns">
@@ -58,7 +61,7 @@ class Restaurant extends React.Component {
             <p><b>Address:</b> {restaurant.address} </p>
             <p><b>Phone: </b> {restaurant.phone} </p>
             <p><b>Website: </b> <a href={restaurant.web} target="_blank" >{restaurant.web}</a></p>
-            <button> Write a review </button>
+            <Link to={linkText}><button> Write a review </button></Link>
             <br/><br/>
             <div className="crop">
               <img src={srcText} alt={restaurant.name} />
