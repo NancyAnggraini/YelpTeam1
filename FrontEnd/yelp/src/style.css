@@ -113,6 +113,17 @@ p {
   margin-top: 100px;
   text-align: center;
 }
+
 .SignUpForm {
   margin-top: 50px;
+}
+
+/* -- AddReview Page -- */
+.AddReview {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.reviewStars {
+  display: inline-block;
 }
