@@ -6,14 +6,15 @@ import ReviewsList from '../../Components/ReviewsList';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import HalfStar from 'material-ui/svg-icons/toggle/star-half';
 import Star from 'material-ui/svg-icons/toggle/star';
+import Map from '../../Components/GoogleMaps';
 
 class Restaurant extends React.Component {
 
   averageCalculator = (reviews) => {
     let totalReviews = 0;
-    for (let i=0; i<reviews.length; i++) { 
-        totalReviews += reviews[i].rate; 
-      } 
+    for (let i=0; i<reviews.length; i++) {
+        totalReviews += reviews[i].rate;
+      }
     const average = totalReviews / reviews.length;
     return average;
   }
@@ -21,19 +22,19 @@ class Restaurant extends React.Component {
   averageStarsRender = (average) => {
     let stars=[];
     for (let i=1; i<=5; i++) {
-      if (i <= average) { 
-        stars.push(<Star key={i} color="yellow" />) 
+      if (i <= average) {
+        stars.push(<Star key={i} color="yellow" />)
       } else if (i - average > 0.01 && i - average < 0.99) {
-        stars.push(<HalfStar key={i} color="yellow" />) 
+        stars.push(<HalfStar key={i} color="yellow" />)
       } else {
-        stars.push(<StarBorder key={i} color="grey" />)  
+        stars.push(<StarBorder key={i} color="grey" />)
       }
     }
     return <p>{stars}</p>;
   }
 
   render() {
-    const restaurantId = this.props.match.params.restaurant_id;
+    const restaurantId = this.props.params;
     // looks for restaurant info
     let restaurant = false;
     for (let i=0; i<this.props.restaurants.length; i++) {
@@ -44,12 +45,13 @@ class Restaurant extends React.Component {
     }
     // extra variables
     const reviews = restaurant.reviews;
-    const srcText = "http://maps.google.com/maps/api/staticmap?center= "+restaurant.address+
-    "&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:"+restaurant.address+"|"+restaurant.address+"";   
-    const linkText = "/restaurant/"+this.props.match.params.restaurant_id+"/reviews/new";
+    const srcText = `http://maps.google.com/maps/api/staticmap?center=${restaurant.address}&maptype=roadmap&zoom=14&size=500x350&sensor=false&maptype=HYBRID&markers=color:red|label:${restaurant.address}|${restaurant.address}`;
+    const linkText = `/restaurant/${restaurantId}/reviews/new`;
+
+
 
     return (
-      <div> 
+      <div>
         <div className="RestaurantColumns">
 
 
@@ -63,9 +65,7 @@ class Restaurant extends React.Component {
             <p><b>Website: </b> <a href={restaurant.web} target="_blank" >{restaurant.web}</a></p>
             <Link to={linkText}><button> Write a review </button></Link>
             <br/><br/>
-            <div className="crop">
-              <img src={srcText} alt={restaurant.name} />
-            </div>
+            <Map address={restaurant.address} name={restaurant.name}/>
           </div>
 
           <div className="ReviewsList">
@@ -74,7 +74,7 @@ class Restaurant extends React.Component {
 
         </div>
       </div>
-      
+
     );
   }
 }

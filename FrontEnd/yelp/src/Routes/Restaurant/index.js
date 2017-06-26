@@ -4,7 +4,7 @@ import RestaurantContainer from '../../Containers/Restaurant';
 class Restaurant extends Component {
   render() {
     return (
-        <RestaurantContainer/>
+        <RestaurantContainer params={this.props.match.params.restaurant_id}/>
     );
   }
 }
