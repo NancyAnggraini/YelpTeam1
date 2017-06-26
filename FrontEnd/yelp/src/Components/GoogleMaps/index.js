@@ -14,7 +14,7 @@ class Map extends Component {
 
   componentDidMount() {
     // address for test purpose taken from the array[0], has to be changed when implemented on the restaurant page
-    const address = this.props.restaurants[0].address;
+    const address = this.props.address;
     let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBM0Y_I8AJlpXoRzx9t6emHYJvzdk1M3LA`;
 
     fetch(url)
@@ -35,7 +35,7 @@ class Map extends Component {
       lat: this.state.lat,
       lng:this.state.lng
     };
-    const name = this.props.restaurants[0].name;
+    const name = this.props.name;
     return (
       <div className="Map-MapWindow" style={{
         width: '200px',
