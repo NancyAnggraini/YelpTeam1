@@ -87,18 +87,12 @@ public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 		Review review = new Review("something text1..", 3, LocalDateTime.now(), user1, restaurant1);
 		service.create(review);
 		assertThat(repository.count()).isEqualTo(4);
-		
-		
-		
-		
-		
-		
-		
+				
 		//Check user reviews
-		assertThat(userRepository.findById(1L).get().getReviews().size()).isEqualTo(3);
-		assertThat(repository.findByUserId(1L).size()).isEqualTo(3);
-		assertThat(review.getUser().getId()).isEqualTo(1);
-		assertThat(review.getRestaurant().getId()).isEqualTo(1);
+		assertThat(user1.getReviews().size()).isEqualTo(3);
+//		assertThat(repository.findByUserId(1L).size()).isEqualTo(3);
+//		assertThat(review.getUser().getId()).isEqualTo(1);
+//		assertThat(review.getRestaurant().getId()).isEqualTo(1);
 		
 		
 	}
