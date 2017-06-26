@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import yelp.domain.Restaurant;
+import yelp.domain.Review;
 import yelp.repository.RestaurantRepository;
 
 
@@ -34,6 +35,12 @@ public class DefaultRestaurantService implements RestaurantService {
 	@Override
 	public Restaurant findById(Long id) {
 		return this.restaurantRepository.findById(id);
+	}
+
+	@Override
+	public void addReview(Long id, Review review) {
+		Restaurant restaurant = this.findById(id);
+		restaurant.getReviews().add(review);
 	}
 
 }
