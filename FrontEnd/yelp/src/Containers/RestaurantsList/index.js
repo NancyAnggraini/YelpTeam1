@@ -8,9 +8,10 @@ import {
   TableRowColumn
 } from 'material-ui/Table';
 import {connect} from 'react-redux';
-import RestaurantsListItem from '../../Component/RestaurantsListItem'
-import './style.css';
+import RestaurantsListItem from '../../Components/RestaurantsListItem'
 import './city.png';
+
+import '../../style.css';
 
 const headerStyles = {
   fontWeight: 'bold',

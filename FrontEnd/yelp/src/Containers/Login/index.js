@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import '../../style.css';
-
 import { RaisedButton } from 'material-ui';
 import TextField from 'material-ui/TextField';
 

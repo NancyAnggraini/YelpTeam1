@@ -30,6 +30,10 @@ input {
 	margin-right: 60px;
 }
 
+/* -- Home Page --*/
+.Home {
+  text-align: center;
+}
 
 /* -- Restaurant Page --- */
 p {
@@ -71,6 +75,35 @@ p {
     margin: -75px 0 0 -100px;
 }
 
+/* -- Restaurant List -- */
+.CombineElements{
+  margin-left: 95px;
+  margin-top: 30px;
+  margin-right: 95px;
+}
+
+.Infobox{
+  margin-top: 20px;
+  border: 2px solid #E4CB6C;
+  height: auto;
+  background-color: #FCF6E2;
+  text-align: left;
+  padding: 20px 50px 20px 50px;
+}
+
+.Title {
+  color: #B70C03;
+}
+
+.RestaurantsList {
+  margin-top: 50px;
+}
+
+.RestaurantsList-Image{
+  margin-top: 150px;
+}
+
+
 /* -- Contact Page -- */
 .ContactCombineElements {
   margin-top: 50px;
@@ -92,11 +125,6 @@ p {
   text-align: left;
 }
 
-.About-intro {
-  font-size: 30px;
-
-}
-
 .About-text {
   font-size: 15px;
 
@@ -110,7 +138,7 @@ p {
 
 /* -- SignUp Page -- */
 .SignUp {
-  margin-top: 100px;
+  margin-top: 50px;
   text-align: center;
 }
 

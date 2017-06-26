@@ -14,6 +14,7 @@ import Restaurant from './Containers/Restaurant';
 import Navbar from './Containers/Navbar';
 import Login from './Containers/Login';
 import SignUp from './Containers/SignUp';
+import EditUser from './Containers/EditUser';
 import AddReview from './Containers/AddReview';
 
 injectTapEventPlugin();
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route exact path="/restaurant/:restaurant_id" component={Restaurant} />
           <Route exact path="/users/sign_in" component={Login} />
           <Route exact path="/users/sign_up" component={SignUp} />
+          <Route exact path="/users/edit" component={EditUser} />
           <Route exact path="/restaurant/:restaurant_id/reviews/new" component={AddReview} />
         </Navbar>
       </Switch>
