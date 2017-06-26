@@ -15,9 +15,7 @@ const labelStyles = {
 class Navbar extends React.Component {
 
   constructor(props) {
-
     super(props);
-
     this.state = {
       query: ''
     }
@@ -30,9 +28,11 @@ class Navbar extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state);
     const restaurants = this.props.restaurants;
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
     //try to do the same on hitting enter not just click on the searchButton
+    this.setState({query: ''});
     }
 
   render() {
@@ -52,8 +52,8 @@ class Navbar extends React.Component {
                 <FlatButton label="Contact" className="redBackground" labelStyle={labelStyles}/>
               </Link>
             </div>
-            <form >
-              <input placeholder="Type a restaurant name" onChange={this.handleSearch}/>
+            <form onSubmit= {this.handleSubmit}>
+              <input placeholder="Type a restaurant name" onChange={this.handleSearch} value={this.state.query}/>
               <RaisedButton onClick={this.handleSubmit} label="Search" className="searchButton" labelStyle={labelStyles} style={{
                 'height': 24
               }}/>
