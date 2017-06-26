@@ -7,16 +7,19 @@ import store from './Store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './Containers/Home';
-import Contact from './Containers/Contact';
-import About from './Containers/About';
-import Restaurant from './Containers/Restaurant';
+import Home from './Routes/Home';
+import Contact from './Routes/Contact';
+import About from './Routes/About';
+import Restaurant from './Routes/Restaurant';
 import Navbar from './Containers/Navbar';
+import Search from './Routes/Search';
 import Login from './Containers/Login';
 import SignUp from './Containers/SignUp';
 import AddReview from './Containers/AddReview';
 
 injectTapEventPlugin();
+
+// MuiThemeProvider needs to be the outermost for the routing to work correctly
 
 ReactDOM.render(
   <MuiThemeProvider>
@@ -28,6 +31,7 @@ ReactDOM.render(
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/restaurant/:restaurant_id" component={Restaurant} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/users/sign_in" component={Login} />
           <Route exact path="/users/sign_up" component={SignUp} />
           <Route exact path="/restaurant/:restaurant_id/reviews/new" component={AddReview} />
