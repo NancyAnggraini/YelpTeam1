@@ -61,4 +61,12 @@ public class UserServiceTest extends AbstractYelpIntegrationTests{
 		service.anonymize(editUser);
 		assertThat(service.findById(1L).getFirstName()).isEqualTo("Anonymous");
 	}
+	
+	@Test
+	public void updateUser(){
+		User editUser = service.findById(1L);
+		editUser.setFirstName("Macarena");
+		assertThat(service.findById(1L).getFirstName()).isEqualTo("Macarena");
+	}
 }
+

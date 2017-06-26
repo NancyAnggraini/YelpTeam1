@@ -80,8 +80,9 @@ public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 		List <Restaurant> restaurantList = restaurantRepository.findAll(); 
 		Restaurant restaurant1 = restaurantList.get(0); 
 		
-		//Check user reviews
+		//Check user and restaurant reviews
 		assertThat(user1.getReviews().size()).isEqualTo(2);
+		assertThat(restaurant1.getReviews().size()).isEqualTo(1);
 		
 		//Create review
 		Review review = new Review("something text1..", 3, LocalDateTime.now(), user1, restaurant1);
@@ -90,9 +91,11 @@ public class ReviewServiceTest extends AbstractYelpIntegrationTests {
 				
 		//Check user reviews
 		assertThat(user1.getReviews().size()).isEqualTo(3);
-//		assertThat(repository.findByUserId(1L).size()).isEqualTo(3);
-//		assertThat(review.getUser().getId()).isEqualTo(1);
-//		assertThat(review.getRestaurant().getId()).isEqualTo(1);
+		assertThat(repository.findByUserId(1L).size()).isEqualTo(3);
+
+		//Check restaurant reviews
+		assertThat(restaurant1.getReviews().size()).isEqualTo(2);
+		assertThat(repository.findByRestaurantId(1L).size()).isEqualTo(2);
 		
 		
 	}
