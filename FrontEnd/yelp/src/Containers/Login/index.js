@@ -36,7 +36,8 @@ class Login extends Component {
           <br /><br /><br />
           <RaisedButton type="submit" label="Sign In" />
         </form><br/>
-        <p>If you don´t have an user, you can register <Link to="/users/sign_up">here</Link> </p>
+        <p>Click <Link to="/forgotpassword">here</Link> if you forgot your password.</p>
+        <h5>If you don´t have an user, you can register <Link to="/users/sign_up">here</Link> </h5>
       </div>
     );
   }

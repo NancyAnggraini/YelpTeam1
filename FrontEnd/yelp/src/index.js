@@ -16,6 +16,7 @@ import Login from './Containers/Login';
 import SignUp from './Containers/SignUp';
 import EditUser from './Containers/EditUser';
 import AddReview from './Containers/AddReview';
+import ForgotPassword from './Containers/ForgotPassword';
 
 injectTapEventPlugin();
 
@@ -33,6 +34,7 @@ ReactDOM.render(
           <Route exact path="/users/sign_up" component={SignUp} />
           <Route exact path="/users/edit" component={EditUser} />
           <Route exact path="/restaurant/:restaurant_id/reviews/new" component={AddReview} />
+          <Route exact path="/forgotpassword" component={ForgotPassword} />
         </Navbar>
       </Switch>
     </Router>
