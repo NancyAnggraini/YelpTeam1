@@ -45,12 +45,6 @@ public class DefaultUserService implements UserService{
 	}
 
 	@Override
-	@Transactional(readOnly = false)
-	public void deleteById(Long id) {
-		userRepository.delete(id);		
-	}
-	
-	@Override
 	public User findById(Long id) {
 		//In this case we can get an optional (from repository), as we can get an optional
 		// we need to define what we will return in case the user returned using the id

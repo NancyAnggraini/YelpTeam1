@@ -33,20 +33,11 @@ public class UserRepositoryTest extends AbstractYelpIntegrationTests{
 		List<String> firstNames = repository.findAll().stream().map(User::getFirstName).collect(toList());
 		assertThat(firstNames).containsExactlyInAnyOrder("testFirstName", "testFirstName2", "testFirstName3");
 	}
-	
-	@Test
-	public void deleteById() {
-		assertThat(repository.count()).isEqualTo(3);
-		User user = repository.findById(1L).get();
-		repository.delete(user.getId());
-		repository.flush();
-		assertThat(repository.count()).isEqualTo(2);
-	}
-	
+		
 	@Test
 	public void save() {
 		assertThat(repository.count()).isEqualTo(3);
-		User newUser = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123", null);
+		User newUser = new User("Miguel", "Perello", "popopo@pepepe.com", "caperucita", "123");
 		repository.save(newUser);
 		assertThat(repository.count()).isEqualTo(4);
 	}

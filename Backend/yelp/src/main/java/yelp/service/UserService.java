@@ -9,8 +9,6 @@ public interface UserService {
 	
 	User update(User user);
 
-	void deleteById(Long id);
-
 	User findById(Long id);
 	
 	void anonymize (User user);

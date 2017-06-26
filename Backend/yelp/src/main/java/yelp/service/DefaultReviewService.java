@@ -2,15 +2,10 @@ package yelp.service;
 
 import java.util.List;
 
-import javax.persistence.EntityNotFoundException;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import yelp.domain.Restaurant;
 import yelp.domain.Review;
 import yelp.repository.ReviewRepository;
 
@@ -19,7 +14,6 @@ import yelp.repository.ReviewRepository;
 public class DefaultReviewService implements ReviewService {
 
 	private final ReviewRepository reviewRepository;
-	private static final Logger logger = LoggerFactory.getLogger(DefaultReviewService.class);
 
 	@Autowired
 	public DefaultReviewService(ReviewRepository reviewRepository) {
@@ -29,28 +23,6 @@ public class DefaultReviewService implements ReviewService {
 	@Override
 	public Review findReviewById(Long id) {
 		return this.reviewRepository.findById(id);
-	}
-
-	@Override
-	public Review create(Review review) {
-		Review newReview = reviewRepository.save(review);
-		
-		//Save reviews in restaurant
-		newReview.getUser().getReviews().add(newReview);
-		newReview.getRestaurant().getReviews().add(newReview);
-		return newReview;
-	}
-
-	@Override
-	public List<Review> getReviewListByUserId(Long userId) {
-		logger.trace("Finding user by username [{}].", userId);
-		return reviewRepository.findByUserId(userId); 
-	}
-
-	@Override
-	public List<Review> getReviewListByRestaurantId(Long restaurantId) {
-		logger.trace("Finding user by username [{}].", restaurantId);
-		return reviewRepository.findByRestaurantId(restaurantId); 
 	}
 
 	@Override

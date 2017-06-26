@@ -18,6 +18,8 @@ package yelp.web;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.DELETE;
+import static org.springframework.http.HttpMethod.PUT;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,15 +49,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.mvcMatcher("/users/**")
 				.authorizeRequests()
 					.mvcMatchers(GET,  "/users/**").permitAll()
-					.mvcMatchers(POST, "/users").permitAll()//.hasRole("USER")
-					.mvcMatchers(      "/users/**").hasRole("ADMIN")
+					.mvcMatchers(POST, "/users").permitAll()
 					.and()
 
-			.mvcMatcher("/tweets/**")
+			.mvcMatcher("/restaurants/**")
 				.authorizeRequests()
 					.mvcMatchers(GET,  "/restaurants/**").permitAll()
+					.mvcMatchers(GET,  "/restaurants/{id}").permitAll()
+					.mvcMatchers(POST,  "/restaurants/{id}/review").permitAll()
+					.mvcMatchers(DELETE,  "/restaurants/{id}/review/{id}").permitAll()
+					.mvcMatchers(PUT,  "/restaurants/{id}/review/{id}").permitAll()
 					.and()
-
+					
 			.mvcMatcher("/**")
 				.authorizeRequests()
 					.mvcMatchers("/**").denyAll()
