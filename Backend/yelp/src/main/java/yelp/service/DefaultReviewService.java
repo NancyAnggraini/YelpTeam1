@@ -23,7 +23,6 @@ public class DefaultReviewService implements ReviewService {
 
 	@Autowired
 	public DefaultReviewService(ReviewRepository reviewRepository) {
-
 		this.reviewRepository = reviewRepository;
 	}
 	
@@ -34,8 +33,12 @@ public class DefaultReviewService implements ReviewService {
 
 	@Override
 	public Review create(Review review) {
+		Review newReview = reviewRepository.save(review);
 		
-		return reviewRepository.save(review);
+		//Save reviews in restaurant
+		newReview.getUser().getReviews().add(newReview);
+		newReview.getRestaurant().getReviews().add(newReview);
+		return newReview;
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -37,10 +38,10 @@ public class Review {
 	@Column(name = "create_at", nullable = true)
 	private LocalDateTime dateCreated;
 
-	@ManyToOne
+	@ManyToOne(optional=false)
 	private User user;
 
-	@ManyToOne
+	@ManyToOne(optional=false)
 	private Restaurant restaurant;
 
 	public Review() {
@@ -55,5 +56,4 @@ public class Review {
 		this.user = user;
 		this.restaurant = restaurant;
 	}
-	
 }
