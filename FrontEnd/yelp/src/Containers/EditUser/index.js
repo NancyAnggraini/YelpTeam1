@@ -63,9 +63,9 @@ class EditUser extends Component {
             style={{ width: '500' }}
             floatingLabelFixed={true} 
             onChange={this.handleCurrentPassword }/><br /><br />
-          
           <RaisedButton type="submit" label="Update" />
-        </form>
+        </form><br />
+        <p>*To cancel your account click <a href='#'>here</a></p>
       </div>
     );
   }
