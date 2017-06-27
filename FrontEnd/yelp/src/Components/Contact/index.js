@@ -8,7 +8,7 @@ class Contact extends Component {
           <div className="ContactCombineElements">
             <h3> We would love to hear from you!</h3>
             <p className="Contact-email">
-            Contact us at <a href= {'#'}>thisleadsnowehre@yelpexample.com</a>
+            Contact us at <a href= {'#'}>thisleadsnowhere@yelpexample.com</a>
             </p>
           </div>
       </div>
