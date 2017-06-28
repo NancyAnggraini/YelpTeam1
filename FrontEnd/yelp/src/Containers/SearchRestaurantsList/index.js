@@ -17,7 +17,6 @@ const headerStyles = {
 
 class SearchRestaurantsList extends Component {
 	render(){
-		console.log(this.props.restaurants)
 		return(<div className="CombineElements">
 			<Table>
 	            <TableHeader displaySelectAll={false} adjustForCheckbox={false} fixedHeader={true}>
