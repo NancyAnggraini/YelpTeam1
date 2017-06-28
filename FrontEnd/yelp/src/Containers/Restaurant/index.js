@@ -42,7 +42,6 @@ class Restaurant extends React.Component {
     if (this.props.restaurant === undefined) return null;
 
     const restaurantId = this.props.params;
-    console.log(typeof(this.props.params));
 
     // looks for restaurant info
     // let selectedRestaurant;
@@ -83,7 +82,6 @@ class Restaurant extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
