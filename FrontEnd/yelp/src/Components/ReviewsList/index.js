@@ -10,14 +10,14 @@ import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Star from 'material-ui/svg-icons/toggle/star';
 
 class ReviewsList extends React.Component {
-  
+
   starsRender = (rate) => {
     let stars=[];
     for (let i=1; i<=5; i++) {
-      if (i <= rate) { 
-        stars.push(<Star key={i} color="yellow" />) 
+      if (i <= rate) {
+        stars.push(<Star key={i} color="yellow" />)
       } else {
-        stars.push(<StarBorder key={i} color="grey" />)  
+        stars.push(<StarBorder key={i} color="grey" />)
       }
     }
     return <div>{stars}</div>;
@@ -36,12 +36,16 @@ class ReviewsList extends React.Component {
       <Table selectable={false} className="ReviewsTable" >
 
         <TableBody displayRowCheckbox={false}>
-        {reviews.map((review) => {
-          return <TableRow className="ReviewsListItem" key={review.id} >
-            <TableRowColumn><b>{review.user.firstName} {this.initial(review.user.lastName)}. </b><br/><br/> {review.created_at} </TableRowColumn>
-            <TableRowColumn> {this.starsRender(review.rate)} <br/><br/> {review.content} </TableRowColumn>
-          </TableRow>
-        })};
+        {
+          reviews.map((review) => {
+            return (
+              <TableRow className="ReviewsListItem" key={review.id} >
+                <TableRowColumn><b>{review.user.firstName} {this.initial(review.user.lastName)}. </b><br/><br/> {review.created_at} </TableRowColumn>
+                <TableRowColumn> {this.starsRender(review.rating)} <br/><br/> {review.text} </TableRowColumn>
+              </TableRow>
+            )
+          })
+        };
         </TableBody>
 
       </Table>
