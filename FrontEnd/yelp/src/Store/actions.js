@@ -3,13 +3,11 @@ export const fetchRestaurants = () => (dispatch, getState) => {
     .then( res => res.json())
     .then( restaurants => {
       const newRestaurants = [ ...restaurants];
-      newRestaurants.forEach( restaurant => {
-        dispatch(addRestaurant(restaurant));
+        dispatch(addRestaurant(newRestaurants));
        })
-    })
 }
 
-export const addRestaurant = (restaurant) => ({
-  type: 'ADD_RESTAURANT',
-  restaurant
+export const addRestaurant = (restaurants) => ({
+  type: 'ADD_RESTAURANTS',
+  restaurants
 });
