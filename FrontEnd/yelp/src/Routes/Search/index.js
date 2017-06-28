@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import RestaurantsList from '../../Containers/RestaurantsList';
+import SearchRestaurantsList from '../../Containers/SearchRestaurantsList';
 
 
 class Search extends Component {
@@ -17,7 +17,7 @@ class Search extends Component {
   render(){
     return(
       // <RestaurantsList restaurants={this.state.restaurants}/>
-      <RestaurantsList/>
+      <SearchRestaurantsList/>
     );
   }
 }
