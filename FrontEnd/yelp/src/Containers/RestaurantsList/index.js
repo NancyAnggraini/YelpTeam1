@@ -39,6 +39,7 @@ class RestaurantsList extends Component {
                 <TableHeaderColumn style={headerStyles}>Name</TableHeaderColumn>
                 <TableHeaderColumn style={headerStyles}>Address</TableHeaderColumn>
                 <TableHeaderColumn style={headerStyles}>Phone</TableHeaderColumn>
+                <TableHeaderColumn style={headerStyles}>Email</TableHeaderColumn>
                 <TableHeaderColumn style={headerStyles}>Website</TableHeaderColumn>
               </TableRow>
             </TableHeader>
