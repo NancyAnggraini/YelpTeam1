@@ -1,8 +1,7 @@
-const restaurants = (state = {}, action) => {
+const restaurants = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_RESTAURANT':
-      const newState = { ...state};
-      newState[action.restaurant.id] = action.restaurant;
+    case 'ADD_RESTAURANTS':
+      const newState = [...action.restaurants];
       return newState;
     default:
       return state;
