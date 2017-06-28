@@ -7,6 +7,7 @@ import {Link, withRouter} from 'react-router-dom';
 import logo from './logo.png';
 import '../../style.css';
 import qs from 'query-string';
+import {fetchSearchedRestaurants} from '../../Store/actions.js'
 
 const labelStyles = {
   textTransform: 'capitalize'
@@ -28,9 +29,9 @@ class Navbar extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     const restaurants = this.props.restaurants;
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
+    this.props.dispatch(fetchSearchedRestaurants(this.state.query));
     //try to do the same on hitting enter not just click on the searchButton
     this.setState({query: ''});
     }
