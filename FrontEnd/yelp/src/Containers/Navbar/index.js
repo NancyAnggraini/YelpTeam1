@@ -29,7 +29,6 @@ class Navbar extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     const restaurants = this.props.restaurants;
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
     this.props.dispatch(fetchSearchedRestaurants(this.state.query));
