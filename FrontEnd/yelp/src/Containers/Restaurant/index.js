@@ -39,18 +39,10 @@ class Restaurant extends React.Component {
   }
 
   render() {
-    if (this.props.restaurant === undefined) return null;
+    //not used anymore because it's not undefined but an empty object instead:
+    //if (this.props.restaurant === undefined) return null;
 
     const restaurantId = this.props.params;
-
-    // looks for restaurant info
-    // let selectedRestaurant;
-    // for (let i = 0; i < this.props.restaurant.length; i++) {
-    //   if (this.props.restaurant[i].id === restaurantId * 1) {
-    //     selectedRestaurant = this.props.restaurant[i];
-    //     break;
-    //   }
-    // }
 
     // extra variables
     const reviews = this.props.restaurant.reviews;
@@ -59,28 +51,31 @@ class Restaurant extends React.Component {
 
     return (
       <div>
-        <div className="RestaurantColumns">
-          <div className="RestaurantInfo">
-            <img
-              className="RestaurantLogo"
-              src={ this.props.restaurant.logo }
-              alt="Restaurant Logo"
-              style={{"backgroundColor":"black"}}/>
-            <h3>{ this.props.restaurant.name }</h3>
-            <div> { this.averageStarsRender(this.averageCalculator(reviews)) } </div>
-            <p> { this.props.restaurant.reviews.length } Reviews </p>
-            <p><b>Address:</b> { this.props.restaurant.address } </p>
-            <p><b>Phone: </b> { this.props.restaurant.phone } </p>
-            <p><b>Website: </b> <a href={ this.props.restaurant.url } target="_blank" >{ this.props.restaurant.url }</a></p>
-            <Link to={ linkText }><button> Write a review </button></Link>
-            <br/><br/>
-            <Map address={ this.props.restaurant.address } name={ this.props.restaurant.name }/>
-          </div>
-
-          <div className="ReviewsList">
-            <ReviewsList reviews={ reviews } />
-          </div>
-        </div>
+        {
+          Object.keys(this.props.restaurant).length !== 0 &&
+            <div className="RestaurantColumns">
+              <div className="RestaurantInfo">
+                <img
+                  className="RestaurantLogo"
+                  src={ this.props.restaurant.logo }
+                  alt="Restaurant Logo"
+                  style={{"backgroundColor":"black"}}
+                  />
+                <h3>{ this.props.restaurant.name }</h3>
+                <div> { this.averageStarsRender(this.averageCalculator(reviews)) } </div>
+                <p> { this.props.restaurant.reviews.length } Reviews </p>
+                <p><b>Address:</b> { this.props.restaurant.address } </p>
+                <p><b>Phone: </b> { this.props.restaurant.phone } </p>
+                <p><b>Website: </b> <a href={ this.props.restaurant.url } target="_blank" >{ this.props.restaurant.url }</a></p>
+                <Link to={ linkText }><button> Write a review </button></Link>
+                <br/><br/>
+                <Map address={ this.props.restaurant.address } name={ this.props.restaurant.name }/>
+              </div>
+              <div className="ReviewsList">
+                <ReviewsList reviews={ reviews } />
+              </div>
+            </div>
+        }
       </div>
     );
   }
@@ -88,7 +83,7 @@ class Restaurant extends React.Component {
 
 const mapStateToProps = (state) => (
   {
-    restaurant: state.restaurants[0]
+    restaurant: state.currentRestaurant
   }
 );
 
