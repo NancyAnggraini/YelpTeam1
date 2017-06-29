@@ -45,7 +45,12 @@ class RestaurantsList extends Component {
             </TableHeader>
             <TableBody displayRowCheckbox={false}>
               {this.props.restaurants.map((restaurant) => {
-                return (<RestaurantsListItem key={restaurant.id} restaurant={restaurant}/>)
+                return (
+                  <RestaurantsListItem
+                    key={ restaurant.id }
+                    restaurant={ restaurant }
+                  />
+                )
               })}
             </TableBody>
           </Table>

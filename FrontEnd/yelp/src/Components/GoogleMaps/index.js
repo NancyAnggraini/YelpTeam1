@@ -22,6 +22,7 @@ class Map extends Component {
       return response.json();
     })
     .then((data) => {
+      console.log('googleMap ', data);
       if (data.results === undefined) return null;
       const location = data.results[0].geometry.location;
       this.setState({

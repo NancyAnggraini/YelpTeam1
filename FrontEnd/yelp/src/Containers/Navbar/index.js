@@ -29,7 +29,7 @@ class Navbar extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const restaurants = this.props.restaurants;
+    //const restaurants = this.props.restaurants;
     this.props.history.push({pathname: '/search', search: qs.stringify({query: this.state.query})})
     this.props.dispatch(fetchSearchedRestaurants(this.state.query));
     //try to do the same on hitting enter not just click on the searchButton
